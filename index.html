@@ -2,6 +2,7 @@
 <html lang="es-ES">
 <head>
     <title>Mi Tarjeta de Presentación Digital</title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="qrcode.js"></script>
@@ -99,9 +100,21 @@
 
         .map-container {
             width: 100%;
-            height: 200px;
+            height: 250px;
             margin-top: 10px;
         }
+		
+		.circle {
+		  display: inline-flex;
+		  justify-content: center;
+		  align-items: center;
+		  width: 60px;
+		  height: 60px;
+		  border-radius: 50%;
+		  background-color: #00853f;
+		  margin-bottom: 10px;
+		}
+		
     </style>
 </head>
 <body>
@@ -116,19 +129,44 @@
 			<h1>Giovannie Escribens Ru</h1>
 			<p>Gerente Gestión Humana</p>
 			
-			<div class="contact-info">
-				<p>Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
-				<p>Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
-				<p>WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
-				<p>Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+			<div class="container">
+			<div class="row">
+			  <div class="col">
+				<div class="circle">
+				  <i class="fas fa-phone-alt" style="font-size:24px;color:white"></i>
+				  <a href="mailto:giovannie.escribens@laive.pe"></a>
+				</div>
+				<p style="font-size:12px;">Celular</p>
+			  </div>
+			  <div class="col">
+				<div class="circle">
+				  <i class="fab fa-whatsapp" style="font-size:24px;color:white"></i>
+				</div>
+				<p style="font-size:12px;">WhatsApp</p>
+			  </div>
+			  <div class="col">
+				<div class="circle">
+				  <i class="fas fa-envelope" style="font-size:24px;color:white"></i>
+				</div>
+				<p style="font-size:12px;">Correo</p>
+			  </div>
 			</div>
 			
-			<div id="map" class="map-container"></div>
+			<div class="contact-info">
+				<p><i class="fas fa-envelope"></i> Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
+				<p><i class="fas fa-phone-alt"></i> Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
+				<p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
+				<p><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+			</div>
+			
+			<div>
+				<div id="map" class="map-container"></div>
+			</div>
 
 				<!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
 				<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
-			<button class="save-contact-btn" onclick="downloadVCard()">Guardar Contacto</button>
-			<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
+			<button class="save-contact-btn" onclick="downloadVCard()"><i class="fas fa-save"></i> Guardar Contacto</button>
+			<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>
 			<p></p>
 			<p><center><div id="qrcode"></div></center></p>
 		</div>
@@ -226,6 +264,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvWyQe-PbuVqTRqbaIsSifhLzHzcYM76c&callback=initMap" async defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
     <script>
         function initMap() {
             var address = "Edificio Capital Golf";
