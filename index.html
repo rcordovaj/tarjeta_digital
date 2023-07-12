@@ -20,7 +20,7 @@
 			max-width: 400px;
 			border-radius: 10px;
 			box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
-			margin: 20px;
+			margin: 10px;
 		}
 
 		.card .content {
@@ -33,7 +33,7 @@
 			flex-direction: column;
 			overflow: hidden;  
 			text-align: center;  
-			padding: 20px;
+			padding: 30px;
 			background: #fff;
 		}
 
@@ -95,7 +95,7 @@
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
+            margin: 10px 10px;
         }
 
         .map-container {
@@ -115,6 +115,10 @@
 		  margin-bottom: 10px;
 		}
 		
+		.contact-map {
+            margin: 10px;
+        }
+		
     </style>
 </head>
 <body>
@@ -125,56 +129,56 @@
                 <img src=".\Foto\GER.jpg" alt="Contact Photo">
             </div>
 				
-			<p style="font-size:13px;">Laive</p>
+			<p style="font-size:14px;">Laive</p>
 			<h1>Giovannie Escribens Ru</h1>
-			<p style="font-size:13px;">Gerente Gestión Humana</p>
+			<p style="font-size:14px;">Gerente Gestión Humana</p>
 			<p></p>
 			<div class="container">
-			<div class="row">
-			  <div class="col">
-				<div class="circle">
-				  <a href="tel:+51987429321"><i class="fas fa-phone-alt" style="font-size:24px;color:white"></i></a>			  
+				<div class="row">
+				  <div class="col">
+					<div class="circle">
+					  <a href="tel:+51987429321"><i class="fas fa-phone-alt" style="font-size:24px;color:white"></i></a>			  
+					</div>
+					<p style="font-size:12px;">Celular</p>
+				  </div>
+				  <div class="col">
+					<div class="circle">
+					  <a href="https://wa.me/51987429321" target="_blank"><i class="fab fa-whatsapp" style="font-size:24px;color:white"></i></a>
+					</div>
+					<p style="font-size:12px;">WhatsApp</p>
+				  </div>
+				  <div class="col">
+					<div class="circle">
+					  <a href="mailto:giovannie.escribens@laive.pe"><i class="fas fa-envelope" style="font-size:24px;color:white"></i></a>	
+					</div>
+					<p style="font-size:12px;">Correo</p>
+				  </div>
 				</div>
-				<p style="font-size:12px;">Celular</p>
-			  </div>
-			  <div class="col">
-				<div class="circle">
-				  <a href="https://wa.me/51987429321" target="_blank"><i class="fab fa-whatsapp" style="font-size:24px;color:white"></i></a>
+				
+				
+				<div class="contact-info">
+					<p style="font-size:15px;"><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
 				</div>
-				<p style="font-size:12px;">WhatsApp</p>
-			  </div>
-			  <div class="col">
-				<div class="circle">
-				  <a href="mailto:giovannie.escribens@laive.pe"><i class="fas fa-envelope" style="font-size:24px;color:white"></i></a>	
-				</div>
-				<p style="font-size:12px;">Correo</p>
-			  </div>
+				
+				<!--<div class="contact-info">
+					<p><i class="fas fa-envelope"></i> Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
+					<p><i class="fas fa-phone-alt"></i> Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
+					<p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
+					<p><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+				</div>-->
 			</div>
-			
-			
-			<div class="contact-info">
-				<p style="font-size:15px;"><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
-			</div>
-			
-			<!--<div class="contact-info">
-				<p><i class="fas fa-envelope"></i> Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
-				<p><i class="fas fa-phone-alt"></i> Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
-				<p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
-				<p><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
-			</div>-->
-			
-			<div>
-				<div id="map" class="map-container"></div>
-			</div>
+		</div>
+		<div class="contact-map">
+			<div id="map" class="map-container"></div>
+		</div>
 
 				<!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
 				<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
-			<button class="save-contact-btn" onclick="downloadVCard()"><i class="fas fa-save"></i> Guardar Contacto</button>
-			<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>
-			<p></p>
-			<p><center><div id="qrcode"></div></center></p>
-		</div>
-    </div>
+		<button class="save-contact-btn" onclick="downloadVCard()"><i class="fas fa-save"></i> Guardar Contacto</button>
+		<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>
+		<p></p>
+		<p><center><div id="qrcode"></div></center></p></div>
+    
 
     <script>
         function downloadVCard() {
