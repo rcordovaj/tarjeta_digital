@@ -102,7 +102,7 @@
 
         <!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
         <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
-		<button class="save-contact-btn" onclick="downloadVCard()">Descargar Contacto</button>
+		<button class="save-contact-btn" onclick="downloadVCard()">Guardar Contacto</button>
 		<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
     </div>
 
@@ -159,15 +159,11 @@
 		function createVCardData(contact) {
 		  var vCard = "BEGIN:VCARD\n";
 		  vCard += "VERSION:3.0\n";
-		  vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
-		  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
+		  //vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
+		  vCard += "FN:"+ contact.name +"\n"; // Reemplaza Nombre Apellido con el nombre completo
 		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
 		  vCard += "EMAIL:" + contact.email + "\n";
-		  
-		  if (contact.photoUrl) {
-			vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URL:" + contact.photoUrl + "\n";
-		  }
-		  
+		  vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URL:" + contact.photoUrl + "\n";
 		  vCard += "END:VCARD";
 
 		  return vCard;
