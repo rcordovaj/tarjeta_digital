@@ -105,6 +105,8 @@
 		<a href=".\Contacto\Tato.vcf" download="Tato.vcf">
 			<button>Descargar Contacto</button>
 		</a>
+		<p>
+		<button onclick="shareContact()">Compartir Contacto</button>
     </div>
 
     <script>
@@ -156,6 +158,42 @@
                 alert("La función para compartir contactos no es compatible con su navegador.");
             }
         }
+		
+		function shareContact() {
+  var contact = {
+    name: "Nombre Completo",
+    phone: "123456789",
+    email: "correo@example.com"
+    // Otros campos del contacto
+  };
+
+  var vCardData = createVCardData(contact);
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'Contacto',
+      text: 'Aquí tienes el contacto vCard',
+      files: [new File([vCardData], 'contacto.vcf', { type: 'text/vcard' })]
+    })
+    .then(() => console.log('Contacto compartido con éxito'))
+    .catch((error) => console.error('Error al compartir el contacto', error));
+  } else {
+    console.warn('La API Web Share no está disponible en este navegador');
+  }
+}
+
+function createVCardData(contact) {
+  var vCard = "BEGIN:VCARD\n";
+  vCard += "VERSION:3.0\n";
+  vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
+  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
+  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
+  vCard += "EMAIL:" + contact.email + "\n";
+  vCard += "END:VCARD";
+
+  return vCard;
+}
+
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
