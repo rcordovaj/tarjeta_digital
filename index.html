@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <title>Mi Tarjeta de Presentación Digital</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #4caf50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #333333;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info a {
+            color: #333333;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .save-contact-btn,
+        .share-contact-btn {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .contact-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .contact-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="contact-photo">
+            <img src=".\Foto\GER.jpg" alt="Contact Photo">
+        </div>
+		
+		<p></p>
+        <h1>Giovannie Escribens Ru <giovannie.escribens@laive.pe></h1>
+        <p>Gerente Gestión Humana</p>
+        
+        <div class="contact-info">
+            <p>Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
+            <p>Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
+            <p>WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
+            <p>Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+        </div>
+        
+        <div id="map" class="map-container"></div>
+
+        <button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
+        <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
+		<a href=".\Contacto\Tato.vcf" download="Tato.vcf">
+			<button>Descargar Contacto</button>
+		</a>
+    </div>
+
+    <script>
+        function saveContact() {
+            var contact = {
+                name: "Giovannie Escribens Ru",
+                email: "giovannie.escribens@laive.pe",
+                phone: "+51 987 429 321"
+            };
+
+            if (navigator.contacts) {
+                navigator.contacts.save(contact, onSaveSuccess, onSaveError);
+            } else {
+                alert("La función para guardar contactos no es compatible con su dispositivo.");
+            }
+        }
+
+        function onSaveSuccess() {
+            alert("¡Contacto guardado con éxito!");
+        }
+
+        function onSaveError(error) {
+            alert("No se pudo guardar el contacto: " + error);
+        }
+
+        function shareContact() {
+            var contact = {
+                name: "Giovannie Escribens Ru",
+                email: "giovannie.escribens@laive.pe",
+                phone: "+51 987 429 321",
+                address: "Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco"
+            };
+
+            var shareText = "Contact Name: " + contact.name + "\n" +
+                            "Email: " + contact.email + "\n" +
+                            "Phone: " + contact.phone + "\n" +
+                            "Address: " + contact.address;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: "Compartir contacto",
+                    text: shareText
+                }).then(function() {
+                    console.log("¡Contacto compartido con éxito!");
+                }).catch(function(error) {
+                    console.log("Error al compartir contacto:", error);
+                });
+            } else {
+                alert("La función para compartir contactos no es compatible con su navegador.");
+            }
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvWyQe-PbuVqTRqbaIsSifhLzHzcYM76c&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var address = "Edificio Capital Golf";
+            var geocoder = new google.maps.Geocoder();
+
+            geocoder.geocode({ address: address }, function(results, status) {
+                if (status === "OK") {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: results[0].geometry.location,
+                        zoom: 16,
+						disableDefaultUI: true
+                    });
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    console.log('Geocode no tuvo éxito por la siguiente razón: ' + status);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
