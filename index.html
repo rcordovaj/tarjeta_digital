@@ -111,7 +111,9 @@
 		  var contact = {
 			name: "Nombre Completo",
 			phone: "123456789",
-			email: "correo@example.com"
+			email: "correo@example.com",
+			photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
+			photoType: "image/jpeg" // Tipo de la imagen
 			// Otros campos del contacto
 		  };
 
@@ -133,7 +135,9 @@
 		  var contact = {
 			name: "Nombre Completo",
 			phone: "123456789",
-			email: "correo@example.com"
+			email: "correo@example.com",
+			photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
+			photoType: "image/jpeg" // Tipo de la imagen
 			// Otros campos del contacto
 		  };
 
@@ -159,6 +163,11 @@
 		  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
 		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
 		  vCard += "EMAIL:" + contact.email + "\n";
+		  
+		  if (contact.photoUrl) {
+			vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URI:" + contact.photoUrl + "\n";
+		  }
+		  
 		  vCard += "END:VCARD";
 
 		  return vCard;
