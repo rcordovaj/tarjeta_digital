@@ -100,131 +100,69 @@
         
         <div id="map" class="map-container"></div>
 
-        <button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
-        <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
-		<button onclick="downloadVCard()">Descargar Contacto</button>
-		<p>
-		<button onclick="shareContact()">Compartir Contacto</button>
+        <!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
+        <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
+		<button class="save-contact-btn" onclick="downloadVCard()">Descargar Contacto</button>
+		<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
     </div>
 
     <script>
-        function saveContact() {
-            var contact = {
-                name: "Giovannie Escribens Ru",
-                email: "giovannie.escribens@laive.pe",
-                phone: "+51 987 429 321"
-            };
+        function downloadVCard() {
+		  var contact = {
+			name: "Nombre Completo",
+			phone: "123456789",
+			email: "correo@example.com"
+			// Otros campos del contacto
+		  };
 
-            if (navigator.contacts) {
-                navigator.contacts.save(contact, onSaveSuccess, onSaveError);
-            } else {
-                alert("La función para guardar contactos no es compatible con su dispositivo.");
-            }
-        }
+		  var vCardData = createVCardData(contact);
 
-        function onSaveSuccess() {
-            alert("¡Contacto guardado con éxito!");
-        }
+		  var blob = new Blob([vCardData], { type: 'text/vcard' });
+		  var url = URL.createObjectURL(blob);
 
-        function onSaveError(error) {
-            alert("No se pudo guardar el contacto: " + error);
-        }
+		  var link = document.createElement('a');
+		  link.href = url;
+		  link.download = 'contacto.vcf';
+		  link.click();
 
-        function shareContact() {
-            var contact = {
-                name: "Giovannie Escribens Ru",
-                email: "giovannie.escribens@laive.pe",
-                phone: "+51 987 429 321",
-                address: "Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco"
-            };
-
-            var shareText = "Contact Name: " + contact.name + "\n" +
-                            "Email: " + contact.email + "\n" +
-                            "Phone: " + contact.phone + "\n" +
-                            "Address: " + contact.address;
-
-            if (navigator.share) {
-                navigator.share({
-                    title: "Compartir contacto",
-                    text: shareText
-                }).then(function() {
-                    console.log("¡Contacto compartido con éxito!");
-                }).catch(function(error) {
-                    console.log("Error al compartir contacto:", error);
-                });
-            } else {
-                alert("La función para compartir contactos no es compatible con su navegador.");
-            }
-        }
+		  // Liberar el objeto URL
+		  URL.revokeObjectURL(url);
+		}
 		
 		function shareContact() {
-  var contact = {
-    name: "Nombre Completo",
-    phone: "123456789",
-    email: "correo@example.com"
-    // Otros campos del contacto
-  };
+		  var contact = {
+			name: "Nombre Completo",
+			phone: "123456789",
+			email: "correo@example.com"
+			// Otros campos del contacto
+		  };
 
-  var vCardData = createVCardData(contact);
+		  var vCardData = createVCardData(contact);
 
-  if (navigator.share) {
-    navigator.share({
-      title: 'Contacto',
-      text: 'Aquí tienes el contacto vCard',
-      files: [new File([vCardData], 'contacto.vcf', { type: 'text/vcard' })]
-    })
-    .then(() => console.log('Contacto compartido con éxito'))
-    .catch((error) => console.error('Error al compartir el contacto', error));
-  } else {
-    console.warn('La API Web Share no está disponible en este navegador');
-  }
-}
+		  if (navigator.share) {
+			navigator.share({
+			  title: 'Contacto',
+			  text: 'Aquí tienes el contacto vCard',
+			  files: [new File([vCardData], 'contacto.vcf', { type: 'text/vcard' })]
+			})
+			.then(() => console.log('Contacto compartido con éxito'))
+			.catch((error) => console.error('Error al compartir el contacto', error));
+		  } else {
+			console.warn('La API Web Share no está disponible en este navegador');
+		  }
+		}
 
-function createVCardData(contact) {
-  var vCard = "BEGIN:VCARD\n";
-  vCard += "VERSION:3.0\n";
-  vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
-  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
-  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
-  vCard += "EMAIL:" + contact.email + "\n";
-  vCard += "END:VCARD";
+		function createVCardData(contact) {
+		  var vCard = "BEGIN:VCARD\n";
+		  vCard += "VERSION:3.0\n";
+		  vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
+		  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
+		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
+		  vCard += "EMAIL:" + contact.email + "\n";
+		  vCard += "END:VCARD";
 
-  return vCard;
-}
-
-function downloadVCard() {
-  var contact = {
-    name: "Nombre Completo",
-    phone: "123456789",
-    email: "correo@example.com"
-    // Otros campos del contacto
-  };
-
-  var vCardData = createVCardData(contact);
-
-  var blob = new Blob([vCardData], { type: 'text/vcard' });
-  var url = URL.createObjectURL(blob);
-
-  var link = document.createElement('a');
-  link.href = url;
-  link.download = 'contacto.vcf';
-  link.click();
-
-  // Liberar el objeto URL
-  URL.revokeObjectURL(url);
-}
-
-function createVCardData(contact) {
-  var vCard = "BEGIN:VCARD\n";
-  vCard += "VERSION:3.0\n";
-  vCard += "N:Apellido;Nombre;;;\n"; // Reemplaza Apellido y Nombre con los valores deseados
-  vCard += "FN:Nombre Apellido\n"; // Reemplaza Nombre Apellido con el nombre completo
-  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
-  vCard += "EMAIL:" + contact.email + "\n";
-  vCard += "END:VCARD";
-
-  return vCard;
-}
+		  return vCard;
+		}
 
     </script>
 
