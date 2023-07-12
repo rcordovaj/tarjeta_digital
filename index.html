@@ -3,6 +3,8 @@
 <head>
     <title>Mi Tarjeta de Presentación Digital</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -104,6 +106,8 @@
         <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
 		<button class="save-contact-btn" onclick="downloadVCard()">Guardar Contacto</button>
 		<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
+		<p><center><div id="qrcode"></div></center></p>
+		
     </div>
 
     <script>
@@ -168,14 +172,32 @@
 		  vCard += "ORG:" + contact.companyName + "\n";
 		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
 		  vCard += "EMAIL:" + contact.email + "\n";
-		  vCard += "PHOTO:" + contact.photoUrl + "\n";
+		  //vCard += "PHOTO:" + contact.photoUrl + "\n";
 		  vCard += "END:VCARD";
 
 		  return vCard;
 		}
+		
+		function generateQRCode(vcard) {
+		  var qrcode = new QRCode("qrcode", {
+			text: vcard,
+			width: 150,
+			height: 150
+		  });
+		}
+
+		var vcard = "BEGIN:VCARD\n" +
+					"VERSION:3.0\n" +
+					"N:Giovannie;Escribens;;;\n" +
+					"FN:Giovannie Escribens\n" +
+					"TEL;TYPE=CELL:+51987429321\n" +
+					"EMAIL:giovannie.escribens@laive.pe\n" +
+					"END:VCARD";
+
+		generateQRCode(vcard);
 
     </script>
-
+	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
