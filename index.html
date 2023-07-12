@@ -8,23 +8,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .card {
-            background-color: #ffffff;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #F3F2F1;
+		}
+
+		.card {
+			position: relative;
+			max-width: 400px;
+			border-radius: 10px;
+			box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
+			margin: 20px;
+		}
+
+		.card .content {
+			position: relative;
+			z-index: 100;
+			width: 100%;
+			height: 100%;
+			border-radius: 10px;
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;  
+			text-align: center;  
+			padding: 20px;
+			background: #fff;
+		}
+
+		.card .content .img {
+			height: 50%;
+			margin-bottom: 20px;
+		}
+
+		.card .content .img img {
+			position: relative;
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			object-fit: cover;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+		}
+
+		.card .content span {
+			position: absolute;
+			width: 495px;
+			height: 200px;
+			background: linear-gradient(to right, #00652f, #00853f);
+			transform: rotate(-23deg);
+			top: -50px;
+			left: -100px;
+		}
         
         h1 {
-            color: #4caf50;
+            color: #00652f;
             font-size: 24px;
             margin-bottom: 10px;
         }
@@ -50,7 +87,7 @@
         
         .save-contact-btn,
         .share-contact-btn {
-            background-color: #4caf50;
+            background-color: #00853f;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -58,56 +95,43 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 20px;
-            margin-right: 10px;
-        }
-
-        .contact-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .contact-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .map-container {
             width: 100%;
             height: 200px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <div class="contact-photo">
-            <img src=".\Foto\GER.jpg" alt="Contact Photo">
-        </div>
-		
-		<p></p>
-        <h1>Giovannie Escribens Ru</h1>
-        <p>Gerente Gestión Humana</p>
-        
-        <div class="contact-info">
-            <p>Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
-            <p>Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
-            <p>WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
-            <p>Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
-        </div>
-        
-        <div id="map" class="map-container"></div>
+		<div class="content">
+            <span></span>
+            <div class="img">
+                <img src=".\Foto\GER.jpg" alt="Contact Photo">
+            </div>
+				
+			<p></p>
+			<h1>Giovannie Escribens Ru</h1>
+			<p>Gerente Gestión Humana</p>
+			
+			<div class="contact-info">
+				<p>Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
+				<p>Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
+				<p>WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
+				<p>Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+			</div>
+			
+			<div id="map" class="map-container"></div>
 
-        <!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
-        <button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
-		<button class="save-contact-btn" onclick="downloadVCard()">Guardar Contacto</button>
-		<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
-		<p><center><div id="qrcode"></div></center></p>
-		
+				<!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
+				<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
+			<button class="save-contact-btn" onclick="downloadVCard()">Guardar Contacto</button>
+			<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
+			<p></p>
+			<p><center><div id="qrcode"></div></center></p>
+		</div>
     </div>
 
     <script>
