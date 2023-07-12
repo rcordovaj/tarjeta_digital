@@ -168,7 +168,7 @@
 		  vCard += "ORG:" + contact.companyName + "\n";
 		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
 		  vCard += "EMAIL:" + contact.email + "\n";
-		  vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URI:" + contact.photoUrl + "\n";
+		  vCard += "PHOTO:" + contact.photoUrl + "\n";
 		  vCard += "END:VCARD";
 
 		  return vCard;
