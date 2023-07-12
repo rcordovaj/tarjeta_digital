@@ -165,8 +165,9 @@
 		  //vCard += "FN:"+ contact.name +"\n"; // Reemplaza Nombre Apellido con el nombre completo
 		  vCard += "ORG:" + contact.companyName + "\n";
 		  vCard += "TEL;TYPE=CELL:" + contact.phone + "\n";
-		  vCard += "EMAIL;TYPE=work:" + contact.email + "\n";
-		  vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URI:" + contact.photoUrl + "\n";
+		  vCard += "EMAIL:" + contact.email + "\n";
+		  //vCard += "PHOTO;TYPE=" + contact.photoType + ";VALUE=URI:" + contact.photoUrl + "\n";
+		  vCard += "PHOTO;TYPE=JPEG;VALUE=URI:https://tarjeta-digital.vercel.app/Foto/GER.jpg" + "\n";
 		  vCard += "END:VCARD";
 
 		  return vCard;
