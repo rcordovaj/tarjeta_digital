@@ -21,6 +21,7 @@
 			border-radius: 10px;
 			box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
 			margin: 10px;
+			background: #fff3e1;
 		}
 
 		.card .content {
@@ -34,7 +35,7 @@
 			overflow: hidden;  
 			text-align: center;  
 			padding-top: 30px;
-			background: #fff;
+			background: #fff3e1;
 		}
 
 		.card .content .img {
@@ -55,14 +56,14 @@
 			position: absolute;
 			width: 495px;
 			height: 200px;
-			background: linear-gradient(to right, #00652f, #00853f);
+			background: linear-gradient(to right, #006537, #006537);
 			transform: rotate(-23deg);
 			top: -50px;
 			left: -100px;
 		}
         
         h1 {
-            color: #00652f;
+            color: #006537;
             font-size: 24px;
             margin-bottom: 10px;
         }
@@ -88,7 +89,7 @@
         
         .save-contact-btn,
         .share-contact-btn {
-            background-color: #00853f;
+            background-color: #006537;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -111,7 +112,7 @@
 		  width: 60px;
 		  height: 60px;
 		  border-radius: 50%;
-		  background-color: #00853f;
+		  background-color: #fb001a;
 		  margin-bottom: 10px;
 		}
 		
@@ -181,7 +182,7 @@
 		<button class="save-contact-btn" onclick="downloadVCard()"><i class="fas fa-save"></i> Guardar Contacto</button>
 		<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>
 		<p></p>
-	
+	</div>
     <script>
         function downloadVCard() {
 		  var contact = {
