@@ -4,8 +4,8 @@
     <title>Mi Tarjeta de Presentación Digital</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript" src="qrcode.js"></script>
+	<!--<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
@@ -21,6 +21,7 @@
 			border-radius: 10px;
 			box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
 			margin: 10px;
+			background: #fff3e1;
 		}
 
 		.card .content {
@@ -34,7 +35,7 @@
 			overflow: hidden;  
 			text-align: center;  
 			padding-top: 30px;
-			background: #fff;
+			background: #fff3e1;
 		}
 
 		.card .content .img {
@@ -44,8 +45,8 @@
 
 		.card .content .img img {
 			position: relative;
-			width: 150px;
-			height: 150px;
+			width: 200px;
+			height: 200px;
 			border-radius: 50%;
 			object-fit: cover;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -55,14 +56,14 @@
 			position: absolute;
 			width: 495px;
 			height: 200px;
-			background: linear-gradient(to right, #00652f, #00853f);
+			background: linear-gradient(to right, #006537, #006537);
 			transform: rotate(-23deg);
 			top: -50px;
 			left: -100px;
 		}
         
         h1 {
-            color: #00652f;
+            color: #006537;
             font-size: 24px;
             margin-bottom: 10px;
         }
@@ -88,7 +89,7 @@
         
         .save-contact-btn,
         .share-contact-btn {
-            background-color: #00853f;
+            background-color: #006537;
             color: #ffffff;
             border: none;
             padding: 10px 20px;
@@ -111,13 +112,18 @@
 		  width: 60px;
 		  height: 60px;
 		  border-radius: 50%;
-		  background-color: #00853f;
+		  background-color: #fb001a;
 		  margin-bottom: 10px;
 		}
 		
 		.contact-map {
             margin: 10px;
         }
+		
+		.linkx{
+			color: #FFFFFF;
+		}
+		.linkx:hover { color: #FFFFFF; }
 		
     </style>
 </head>
@@ -126,30 +132,30 @@
 		<div class="content">
             <span></span>
             <div class="img">
-                <img src=".\Foto\GER.jpg" alt="Contact Photo">
+                <img src=".\Foto\Fernando_Quintana.png" alt="Contact Photo">
             </div>
 				
 			<p style="font-size:14px;">Laive</p>
-			<h1>Giovannie Escribens Ru</h1>
-			<p style="font-size:14px;">Gerente Gestión Humana</p>
+			<h1>Fernando Quintana Cahuas</h1>
+			<p style="font-size:14px;">Product Owner</p>
 			<p></p>
 			<div class="container">
 				<div class="row">
 				  <div class="col">
 					<div class="circle">
-					  <a href="tel:+51987429321"><i class="fas fa-phone-alt" style="font-size:24px;color:white"></i></a>			  
+					  <a href="tel:+51960279951"><i class="fas fa-phone-alt" style="font-size:24px;color:white"></i></a>			  
 					</div>
 					<p style="font-size:12px;">Celular</p>
 				  </div>
 				  <div class="col">
 					<div class="circle">
-					  <a href="https://wa.me/51987429321" target="_blank"><i class="fab fa-whatsapp" style="font-size:24px;color:white"></i></a>
+					  <a href="https://wa.me/51960279951" target="_blank"><i class="fab fa-whatsapp" style="font-size:24px;color:white"></i></a>
 					</div>
 					<p style="font-size:12px;">WhatsApp</p>
 				  </div>
 				  <div class="col">
 					<div class="circle">
-					  <a href="mailto:giovannie.escribens@laive.pe"><i class="fas fa-envelope" style="font-size:24px;color:white"></i></a>	
+					  <a href="mailto:fernando.quintana@laive.pe"><i class="fas fa-envelope" style="font-size:24px;color:white"></i></a>	
 					</div>
 					<p style="font-size:12px;">Correo</p>
 				  </div>
@@ -157,39 +163,36 @@
 				
 				
 				<div class="contact-info">
-					<p style="font-size:15px;"><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
+					<p style="font-size:13px;"><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
 				</div>
 				
 				<!--<div class="contact-info">
-					<p><i class="fas fa-envelope"></i> Correo: <a href="mailto:giovannie.escribens@laive.pe">giovannie.escribens@laive.pe</a></p>
+					<p><i class="fas fa-envelope"></i> Correo: <a href="mailto:jorge.conroy@laive.pe">jorge.conroy@laive.pe</a></p>
 					<p><i class="fas fa-phone-alt"></i> Celular: <a href="tel:+51987429321">+51 987 429 321</a></p>
 					<p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/51987429321" target="_blank">+51 987 429 321</a></p>
 					<p><i class="fas fa-map-marker-alt"></i> Oficina: Edificio Capital Golf - Av. Circunvalación Golf los Incas 154 Oficina 702 - Surco</p>
 				</div>-->
 			</div>
 		</div>
-		<div class="contact-map">
-			<div id="map" class="map-container"></div>
-		</div>
-
+		
 				<!--<button class="save-contact-btn" onclick="saveContact()">Guardar Contacto</button>
-				<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>-->
+				<button class="share-contact-btn" onclick="shareContact()">Compartir Contacto</button>
+		<a href="https://laive.pe/" class="save-contact-btn" role="button" aria-pressed="true"><i class="fas fa-globe"></i> Visita nuestra Web</a>-->
+		<button class="save-contact-btn"><a href="https://laive.pe/" class="linkx" target="_blank"><i class="fas fa-globe"></i> Visita nuestra Web</a> </button>
 		<button class="save-contact-btn" onclick="downloadVCard()"><i class="fas fa-save"></i> Guardar Contacto</button>
-		<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>
+		<!--<button class="share-contact-btn" onclick="shareContact()"><i class="fas fa-share-alt"></i> Compartir Contacto</button>-->
 		<p></p>
-		<p><center><div id="qrcode"></div></center></p></div>
-    
-
+	</div>
     <script>
         function downloadVCard() {
 		  var contact = {
-			firstName: "Giovannie",
-			lastName: "Escribens Ru",
-			phone: "+51987429321",
-			email: "giovannie.escribens@laive.pe",
+			firstName: "Fernando",
+			lastName: "Quintana Cahuas",
+			phone: "+51960279951",
+			email: "fernando.quintana@laive.pe",
 			companyName: "Laive",
-			photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
-			photoType: "JPEG" // Tipo de la imagen
+			//photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
+			//photoType: "JPEG" // Tipo de la imagen
 			// Otros campos del contacto
 		  };
 
@@ -209,13 +212,13 @@
 		
 		function shareContact() {
 		  var contact = {
-			firstName: "Giovannie",
-			lastName: "Escribens Ru",
-			phone: "+51987429321",
-			email: "giovannie.escribens@laive.pe",
+			firstName: "Fernando",
+			lastName: "Quintana Cahuas",
+			phone: "+51960279951",
+			email: "fernando.quintana@laive.pe",
 			companyName: "Laive",
-			photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
-			photoType: "JPEG" // Tipo de la imagen
+			//photoUrl: "https://tarjeta-digital.vercel.app/Foto/GER.jpg", // URL de la foto
+			//photoType: "JPEG" // Tipo de la imagen
 			// Otros campos del contacto
 		  };
 
@@ -247,54 +250,11 @@
 
 		  return vCard;
 		}
-		
-		function generateQRCode(vcard) {
-		  var qrcode = new QRCode("qrcode", {
-			text: vcard,
-			width: 150,
-			height: 150
-		  });
-		}
-
-		var vcard = "BEGIN:VCARD\n" +
-					"VERSION:3.0\n" +
-					"N:Giovannie;Escribens;;;\n" +
-					"FN:Giovannie Escribens\n" +
-					"TEL;TYPE=CELL:+51987429321\n" +
-					"EMAIL:giovannie.escribens@laive.pe\n" +
-					"END:VCARD";
-
-		generateQRCode(vcard);
-
     </script>
 	
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvWyQe-PbuVqTRqbaIsSifhLzHzcYM76c&callback=initMap" async defer></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <script>
-        function initMap() {
-            var address = "Edificio Capital Golf";
-            var geocoder = new google.maps.Geocoder();
-
-            geocoder.geocode({ address: address }, function(results, status) {
-                if (status === "OK") {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        center: results[0].geometry.location,
-                        zoom: 16,
-						disableDefaultUI: true
-                    });
-
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: results[0].geometry.location
-                    });
-                } else {
-                    console.log('Geocode no tuvo éxito por la siguiente razón: ' + status);
-                }
-            });
-        }
-    </script>
 </body>
 </html>
